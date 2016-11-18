@@ -1,0 +1,11 @@
+# phpstorm project files
+.idea
+
+# composer vendor dir
+/vendor
+
+# vagrant
+.vagrant
+
+# local config
+/yii

@@ -29,7 +29,17 @@ $config = [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
-            'rules' => []
+            'rules' => [
+                'v1/login' => 'v1/default/login',
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => [
+                        'v1/book',
+                        'v1/rating',
+                        'v1/user'
+                    ]
+                ]
+            ]
         ]
     ],
     'modules' => [

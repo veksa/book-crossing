@@ -9,3 +9,5 @@
 
 # local config
 /yii
+/yii_test
+/yii_test.bat

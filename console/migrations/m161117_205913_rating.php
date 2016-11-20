@@ -12,9 +12,9 @@ class m161117_205913_rating extends Migration
 
         $this->createTable('{{%BX-Book-Ratings}}', [
             'User-ID' => $this->integer(),
-            'ISBN' => $this->string(),
+            'Book-ID' => $this->integer(),
             'Book-Rating' => $this->integer(),
-            'PRIMARY KEY (`User-ID`, `ISBN`)'
+            'PRIMARY KEY (`User-ID`, `Book-ID`)'
         ], $tableOptions);
     }
 

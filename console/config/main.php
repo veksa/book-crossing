@@ -1,19 +1,25 @@
 <?
-$rootPath = dirname(dirname(__DIR__));
-
-require($rootPath . '/common/config/bootstrap.php');
-
 $params = array_merge(
-    require($rootPath . '/common/config/params.php'),
-    require($rootPath . '/common/config/params-local.php'),
-    require($rootPath . '/console/config/params.php'),
-    require($rootPath . '/console/config/params-local.php')
+    require(__DIR__ . '/../../common/config/params.php'),
+    require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/params-local.php')
 );
 
 return [
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
+    'bootstrap' => ['log'],
     'controllerNamespace' => 'console\controllers',
-    'params' => $params,
-    'components' => []
+    'components' => [
+        'log' => [
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning']
+                ]
+            ]
+        ]
+    ],
+    'params' => $params
 ];

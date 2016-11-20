@@ -24,6 +24,11 @@ class User extends ActiveRecord
                 'max' => 255
             ],
             [
+                ['country'],
+                'string',
+                'max' => 15
+            ],
+            [
                 ['Age'],
                 'integer'
             ]
@@ -35,7 +40,24 @@ class User extends ActiveRecord
         return [
             'User-ID' => 'ID',
             'Location' => 'Местоположение',
+            'country' => 'Страна',
             'Age' => 'Возраст'
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($this->Location) {
+                $location = explode(',', $this->Location);
+                if (count($location) == 3) {
+                    $this->country = $location[2];
+                }
+            }
+
+            return true;
+        }
+
+        return false;
     }
 }

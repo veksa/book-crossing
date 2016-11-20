@@ -31,10 +31,6 @@ echo "Done!"
 info "Install plugins for composer"
 composer global require "fxp/composer-asset-plugin:^1.2.0" --no-progress
 
-info "Install codeception"
-composer global require "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*" --no-progress
-echo 'export PATH=/home/vagrant/.config/composer/vendor/bin:$PATH' | tee -a /home/vagrant/.profile
-
 info "Install project dependencies"
 cd /var/www
 composer --no-progress --prefer-dist install
@@ -53,7 +49,7 @@ info "Apply only login table"
 php yii migrate/up 1 <<< "yes"
 
 info "Apply test database"
-php /var/www/tests/codeception/bin/yii migrate/up <<< "yes"
+php /var/www/yii_test migrate/up <<< "yes"
 
 info "Download the Book Review dataset"
 if [ ! -r BX-SQL-Dump.zip ]
@@ -73,4 +69,8 @@ $ACS < BX-Book-Ratings.sql
 $ACS < BX-Books.sql
 $ACS < BX-Users.sql
 
-info "Done!"
+info "Done!";
+
+info "Optimize tables, replace primary ISBN to ID and add unique to ISBN, normalize country"
+$ACS < /var/www/vagrant/provision/optimize.sql
+info "Done!";

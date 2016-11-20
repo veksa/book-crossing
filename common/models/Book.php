@@ -15,13 +15,13 @@ class Book extends ActiveRecord
     {
         return [
             [
+                ['Book-ID', 'Year-Of-Publication'],
+                'integer'
+            ],
+            [
                 ['ISBN'],
                 'string',
                 'max' => 13
-            ],
-            [
-                ['Year-Of-Publication'],
-                'integer'
             ],
             [
                 ['Book-Title', 'Book-Author', 'Publisher', 'Image-URL-S', 'Image-URL-M', 'Image-URL-L'],
@@ -34,7 +34,8 @@ class Book extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ISBN' => 'ID',
+            'Book-ID' => 'ID',
+            'ISBN' => 'ISBN',
             'Year-Of-Publication' => 'Год публикации',
             'Book-Title' => 'Название',
             'Book-Author' => 'Автор',

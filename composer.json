@@ -14,13 +14,15 @@
     "yiisoft/yii2-faker": "~2.0.0",
 
     "codeception/base": "^2.2.3",
-    "codeception/verify": "~0.3.1"
+    "codeception/verify": "~0.3.1",
+
+    "guzzlehttp/guzzle": ">=4.1.4 <7.0"
   },
   "config": {
     "process-timeout": 1800
   },
   "scripts": {
-    "test": "vendor/codeception/codeception/codecept"
+    "test": "vendor/codeception/base/codecept"
   },
   "extra": {
     "asset-installer-paths": {

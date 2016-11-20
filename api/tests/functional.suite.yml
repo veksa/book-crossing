@@ -1,0 +1,15 @@
+class_name: FunctionalTester
+modules:
+    enabled:
+        - Yii2
+        - PhpBrowser
+        - REST
+    config:
+        PhpBrowser:
+            url: http://api.book-crossing.local/index-test.php/
+            curl:
+                CURLOPT_TIMEOUT: 180
+        REST:
+            depends: PhpBrowser
+            url: 'http://api.book-crossing.local/index-test.php/'
+            part: Json

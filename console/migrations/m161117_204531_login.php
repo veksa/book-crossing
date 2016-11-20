@@ -21,7 +21,8 @@ class m161117_204531_login extends Migration
 
         $this->insert('{{%logins}}', [
             'name' => 'demo',
-            'password' => Yii::$app->security->generatePasswordHash('demo123')
+            'password' => Yii::$app->security->generatePasswordHash('demo123'),
+            'auth_key' => Yii::$app->security->generateRandomString()
         ]);
     }
 

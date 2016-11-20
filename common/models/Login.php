@@ -49,7 +49,7 @@ class Login extends ActiveRecord implements IdentityInterface
             return null;
         }
 
-        return static::findOne(['access_token' => $token]);
+        return static::findOne(['auth_key' => $token]);
     }
 
     public static function findIdentityByName($name)

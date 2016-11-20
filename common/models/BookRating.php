@@ -15,13 +15,8 @@ class BookRating extends ActiveRecord
     {
         return [
             [
-                ['User-ID', 'Book-Rating'],
+                ['User-ID', 'Book-ID', 'Book-Rating'],
                 'integer'
-            ],
-            [
-                ['ISBN'],
-                'string',
-                'max' => 13
             ]
         ];
     }
@@ -30,7 +25,7 @@ class BookRating extends ActiveRecord
     {
         return [
             'User-ID' => 'ID пользователя',
-            'ISBN' => 'ISBN книги',
+            'Book-ID' => 'ID книги',
             'Book-Rating' => 'Рейтинг'
         ];
     }

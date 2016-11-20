@@ -3,12 +3,12 @@ namespace api\modules\v1\controllers;
 
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\filters\auth\QueryParamAuth;
 use yii\rest\ActiveController;
 use yii\filters\auth\CompositeAuth;
 use yii\helpers\ArrayHelper;
 use yii\web\Response;
 use yii\filters\ContentNegotiator;
-use api\modules\v1\auth\UserAuth;
 
 abstract class RestController extends ActiveController
 {
@@ -21,7 +21,7 @@ abstract class RestController extends ActiveController
                 'class' => CompositeAuth::className(),
                 'except' => ['options', 'index', 'view'],
                 'authMethods' => [
-                    UserAuth::className()
+                    QueryParamAuth::className()
                 ]
             ]
         ]);

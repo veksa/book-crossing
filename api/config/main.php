@@ -31,14 +31,24 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'v1/login' => 'v1/default/login',
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => [
-                        'v1/book',
-                        'v1/rating',
-                        'v1/user'
-                    ]
-                ]
+                'OPTIONS v1/book' => 'v1/book/options',
+                'GET v1/books' => 'v1/book/index',
+                'GET v1/book/<id:\d+>' => 'v1/book/view',
+                'POST v1/book' => 'v1/book/create',
+                'PUT v1/book/<id:\d+>' => 'v1/book/update',
+                'DELETE v1/book/<id:\d+>' => 'v1/book/delete',
+
+                'OPTIONS v1/rating' => 'v1/rating/options',
+                'GET v1/rating/<bookId:\d+>' => 'v1/rating/index',
+                'POST v1/rating' => 'v1/rating/create',
+                'DELETE v1/rating/<bookId:\d+>/<userId:\d+>' => 'v1/rating/delete',
+
+                'OPTIONS v1/user' => 'v1/user/options',
+                'GET v1/users' => 'v1/user/index',
+                'GET v1/user/<id:\d+>' => 'v1/user/view',
+                'POST v1/user' => 'v1/user/create',
+                'PUT v1/user/<id:\d+>' => 'v1/user/update',
+                'DELETE v1/user/<id:\d+>' => 'v1/user/delete'
             ]
         ]
     ],

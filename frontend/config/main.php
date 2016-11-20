@@ -27,7 +27,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'default/index'
+                '' => 'default/index',
+                'book/<id:\d+>' => 'default/book'
             ]
         ]
     ],

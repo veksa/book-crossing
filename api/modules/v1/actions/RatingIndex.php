@@ -4,6 +4,7 @@ namespace api\modules\v1\actions;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\rest\Action;
+use yii\rest\IndexAction;
 
 class RatingIndex extends Action
 {

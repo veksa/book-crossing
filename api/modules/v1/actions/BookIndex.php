@@ -3,17 +3,17 @@ namespace api\modules\v1\actions;
 
 use Yii;
 use yii\data\ActiveDataProvider;
-use yii\rest\ViewAction;
+use yii\rest\IndexAction;
 
-class CountryView extends ViewAction
+class BookIndex extends IndexAction
 {
     /** @inheritdoc */
-    public function run($id)
+    public function run()
     {
         /* @var $modelClass \yii\db\BaseActiveRecord */
         $modelClass = $this->modelClass;
 
-        $query = $modelClass::find()->where(['Book-ID' => $id]);
+        $query = $modelClass::find();
         $queryCount = clone $query;
 
         $totalCount = $queryCount->count();
@@ -21,7 +21,7 @@ class CountryView extends ViewAction
 
         $get = Yii::$app->request->get();
         $start = 0;
-        if (isset($get['start'])){
+        if (isset($get['start'])) {
             $start = (int)$get['start'];
         }
 

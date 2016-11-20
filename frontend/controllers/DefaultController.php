@@ -18,4 +18,11 @@ class DefaultController extends Controller
     {
         return $this->render('index');
     }
+
+    public function actionBook($id)
+    {
+        return $this->render('book', [
+            'bookId' => $id
+        ]);
+    }
 }

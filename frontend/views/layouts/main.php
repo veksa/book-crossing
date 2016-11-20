@@ -1,4 +1,5 @@
 <?
+use yii\bootstrap\Nav;
 use yii\helpers\Html;
 use frontend\assets\AppAsset;
 
@@ -24,6 +25,13 @@ AppAsset::register($this);
 </head>
 <body>
 <? $this->beginBody() ?>
+
+<?= Nav::widget([
+    'options' => ['class' => 'navbar-nav navbar-right'],
+    'items' => [
+        ['label' => 'Index', 'url' => ['default/index']]
+    ]
+]) ?>
 
 <?= $content ?>
 

@@ -48,7 +48,11 @@ $config = [
                 'GET v1/user/<id:\d+>' => 'v1/user/view',
                 'POST v1/user' => 'v1/user/create',
                 'PUT v1/user/<id:\d+>' => 'v1/user/update',
-                'DELETE v1/user/<id:\d+>' => 'v1/user/delete'
+                'DELETE v1/user/<id:\d+>' => 'v1/user/delete',
+
+                'OPTIONS v1/country' => 'v1/country/options',
+                'GET v1/countries-rating' => 'v1/country/index',
+                'GET v1/country-rating/<id:\d+>' => 'v1/country/view'
             ]
         ]
     ],

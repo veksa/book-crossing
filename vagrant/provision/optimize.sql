@@ -12,4 +12,4 @@ ALTER TABLE `BX-Book-Ratings` DROP `ISBN`;
 # explode country from Location
 ALTER TABLE `BX-Users` ADD `Country` VARCHAR(15) NOT NULL AFTER `Location`;
 ALTER TABLE `BX-Users` ADD INDEX Country (`Country`);
-UPDATE `BX-Users` SET `Country` = SUBSTRING_INDEX(`Location`, ', ', -1);
+UPDATE `BX-Users` SET `Country` = TRIM(SUBSTRING_INDEX(`Location`, ',', -1));

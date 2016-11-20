@@ -74,3 +74,5 @@ info "Done!";
 info "Optimize tables, replace primary ISBN to ID and add unique to ISBN, normalize country"
 $ACS < /var/www/vagrant/provision/optimize.sql
 info "Done!";
+
+php /var/www/yii rating

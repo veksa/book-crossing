@@ -13,7 +13,7 @@ class m161117_205036_user extends Migration
         $this->createTable('{{%BX-Users}}', [
             'User-ID' => $this->primaryKey(),
             'Location' => $this->string(),
-            'country' => $this->string(15),
+            'Country' => $this->string(15),
             'Age' => $this->integer()
         ], $tableOptions);
     }

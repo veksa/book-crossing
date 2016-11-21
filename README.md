@@ -1,7 +1,7 @@
 # Book Crossing REST with simple UI
 
 ##Install
-To install run:
+To install run, and follow the instructions:
 
 ```
 vagrant up
@@ -13,11 +13,17 @@ After starting Vagrant:
 2. Will downloaded and installed the Yii2 from composer.
 3. Will installed default config files and default database.
 4. Will download and install Book Crossing Database.
-5. Optimize tables in downloaded database.
+5. Will optimized tables in the downloaded database.
 
 ##Tests
 To run tests:
 
 ```
-composer test
+composer test run
+```
+
+or
+
+```
+vendor/codeception/base/codecept run
 ```

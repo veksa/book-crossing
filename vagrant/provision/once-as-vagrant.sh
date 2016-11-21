@@ -46,10 +46,13 @@ info "Apply crontab"
 crontab /var/www/vagrant/provision/crontab
 
 info "Apply only login table"
-php yii migrate/up 1 <<< "yes"
+php yii migrate/up 2 <<< "yes"
 
 info "Apply test database"
 php /var/www/yii_test migrate/up <<< "yes"
+
+info "Build tests"
+php /var/www/vendor/codeception/base/codecept build
 
 info "Download the Book Review dataset"
 if [ ! -r BX-SQL-Dump.zip ]
@@ -62,17 +65,22 @@ then
     unzip BX-SQL-Dump.zip
 fi
 
-perl -pi -e s'/\) TYPE=MyISAM;/\);/' *.sql
+mv BX-* ~
 
-ACS="mysql $DBNAME"
-$ACS < BX-Book-Ratings.sql
-$ACS < BX-Books.sql
-$ACS < BX-Users.sql
+perl -pi -e s'/\) TYPE=MyISAM;/\);/' ~/*.sql
 
+ACS="mysql book_crossing"
+
+info "Decompression of Ratings"
+$ACS < ~/BX-Book-Ratings.sql
+info "Decompression of Books"
+$ACS < ~/BX-Books.sql
+info "Decompression of Users"
+$ACS < ~/BX-Users.sql
 info "Done!";
 
 info "Optimize tables, replace primary ISBN to ID and add unique to ISBN, normalize country"
 $ACS < /var/www/vagrant/provision/optimize.sql
 info "Done!";
 
-php /var/www/yii rating
+php yii rating

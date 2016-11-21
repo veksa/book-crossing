@@ -1,10 +1,11 @@
 <?
 namespace console\controllers;
 
-use common\models\CountryRating;
 use Yii;
+use yii\console\Controller;
+use common\models\CountryRating;
 
-class RatingController
+class RatingController extends Controller
 {
     public function actionIndex()
     {
